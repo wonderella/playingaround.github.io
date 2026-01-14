@@ -1,315 +1,240 @@
 <!DOCTYPE html>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-color: #f0f4f8;
+        --card-bg: rgba(255, 255, 255, 0.7);
+        --accent-blue: #3a86ff;
+        --text-main: #2d3436;
+        --text-light: #636e72;
+        --glass-border: rgba(255, 255, 255, 0.4);
+    }
+
+    * {
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        background-attachment: fixed;
+        color: var(--text-main);
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Transparent Aesthetic Header */
+    header {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 1.5rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 30px;
+        margin: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--text-main);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    nav a:hover {
+        color: var(--accent-blue);
+    }
+
+    /* Hero Section */
+    #home {
+        text-align: center;
+        padding: 100px 20px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        background: linear-gradient(to right, #2d3436, #3a86ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Aesthetic Containers */
+    section {
+        max-width: 1000px;
+        margin: 60px auto;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        border-left: 4px solid var(--accent-blue);
+        padding-left: 15px;
+        margin-bottom: 30px;
+    }
+
+    /* Project Cards (Glassmorphism) */
+    article {
+        background: var(--card-bg);
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    article:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        background: white;
+    }
+
+    /* Buttons/Links */
+    .project-links a {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: var(--accent-blue);
+        color: white;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .project-links a:hover {
+        background: #0056b3;
+        text-decoration: none;
+    }
+
+    /* Contact Section Pill */
+    #contact {
+        background: #1a202c;
+        color: white;
+        border-radius: 30px;
+        padding: 50px;
+        text-align: center;
+    }
+
+    #contact h2 { border: none; color: white; padding: 0; }
+    #contact a { color: #63b3ed; }
+
+    footer {
+        padding: 40px;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-light);
+    }
+
+    /* Hide the ugly HR lines from the HTML */
+    hr { display: none; }
+</style>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vellichor | Micro-Poetry</title>
-    <style>
-        /* --- 1. SETTING THE MOOD (CSS Variables) --- */
-        :root {
-            --bg-color: #Fdfbf7;
-            --text-main: #2c2c2c;
-            --text-muted: #8c8c8c;
-            --accent: #d4a5a5;
-            --card-bg: #ffffff;
-            --font-serif: 'Playfair Display', serif;
-            --font-mono: 'Cormorant Garamond', serif; /* Using a readable serif for body */
-            --font-typewriter: 'Courier Prime', monospace;
-        }
-
-        /* --- 2. GLOBAL STYLES --- */
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            font-family: var(--font-serif);
-            overflow-x: hidden;
-            /* The Grain Effect */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-        }
-
-        /* External Fonts Import */
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
-
-        /* --- 3. LAYOUT --- */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding-top: 40px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 400;
-            letter-spacing: -1px;
-            margin: 0;
-            font-style: italic;
-        }
-
-        p.subtitle {
-            font-family: var(--font-typewriter);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* --- 4. THE FEED (Masonry feel) --- */
-        .feed {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            padding-bottom: 100px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            opacity: 0;
-            animation: driftIn 0.8s forwards;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px -10px rgba(0,0,0,0.1);
-        }
-
-        .card-content {
-            font-family: var(--font-typewriter);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            white-space: pre-wrap; /* Preserves line breaks */
-            margin-bottom: 20px;
-        }
-
-        .card-meta {
-            font-family: var(--font-typewriter);
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 15px;
-        }
-
-        /* --- 5. THE WRITING FAB (Floating Action Button) --- */
-        .fab {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 60px;
-            height: 60px;
-            background: var(--text-main);
-            color: var(--bg-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-            z-index: 100;
-        }
-
-        .fab:hover {
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        /* --- 6. THE WRITING MODAL --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(253, 251, 247, 0.95);
-            backdrop-filter: blur(5px);
-            z-index: 200;
-            display: none; /* Hidden by default */
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            width: 100%;
-            max-width: 500px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        textarea {
-            width: 100%;
-            height: 200px;
-            background: transparent;
-            border: none;
-            outline: none;
-            font-family: var(--font-typewriter);
-            font-size: 1.2rem;
-            color: var(--text-main);
-            resize: none;
-            text-align: center;
-        }
-
-        textarea::placeholder {
-            color: #d1d1d1;
-            font-style: italic;
-        }
-
-        .btn-post {
-            background: transparent;
-            border: 1px solid var(--text-main);
-            padding: 10px 30px;
-            font-family: var(--font-typewriter);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-post:hover {
-            background: var(--text-main);
-            color: var(--bg-color);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            cursor: pointer;
-            font-family: var(--font-typewriter);
-            font-size: 1.5rem;
-        }
-
-        /* Animation Keyframes */
-        @keyframes driftIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <title>My Portfolio | Home</title>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Vellichor.</h1>
-            <p class="subtitle">ephemeral thoughts in digital ink</p>
-        </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#tech-projects">Coding Projects</a></li>
+                <li><a href="#creative-projects">Videography & Design</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="feed" id="poemFeed">
-            <div class="card">
-                <div class="card-content">the moon sat heavy
-on the window sill,
-asking to be let in.
-i told her
-i was full already.</div>
-                <div class="card-meta">
-                    <span>@luna</span>
-                    <span>Just now</span>
-                </div>
-            </div>
+    <hr>
 
-             <div class="card">
-                <div class="card-content">coffee stains
-and
-yesterday's rain.</div>
-                <div class="card-meta">
-                    <span>@drift</span>
-                    <span>2m ago</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <section id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>I am a multi-disciplinary creator specializing in <strong>Software Development</strong> and <strong>Visual Storytelling</strong>.</p>
+    </section>
 
-    <div class="fab" onclick="toggleModal()">+</div>
+    <hr>
 
-    <div class="modal-overlay" id="modal">
-        <div class="close-modal" onclick="toggleModal()">×</div>
-        <div class="modal-content">
-            <textarea id="poemInput" placeholder="type your soul here..." maxlength="280"></textarea>
-            <br>
-            <button class="btn-post" onclick="postPoem()">Publish</button>
-        </div>
-    </div>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Write a brief introduction here. Talk about your journey from graphic design into coding, or how your eye for design helps you build better user interfaces.</p>
+        <h3>Skills</h3>
+        <ul>
+            <li>Languages: HTML, CSS, JavaScript, Python</li>
+            <li>Creative Tools: Adobe Premiere Pro, Photoshop, After Effects</li>
+            <li>Technical: Git, Web Development, Responsive Design</li>
+        </ul>
+    </section>
 
-    <script>
-        // --- LOGIC ---
+    <hr>
 
-        function toggleModal() {
-            const modal = document.getElementById('modal');
-            const input = document.getElementById('poemInput');
-            
-            if (modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                setTimeout(() => { modal.style.display = 'none'; }, 300);
-            } else {
-                modal.style.display = 'flex';
-                // slight delay to allow display flex to apply before opacity transition
-                setTimeout(() => { 
-                    modal.classList.add('active'); 
-                    input.focus();
-                }, 10);
-            }
-        }
+    <section id="tech-projects">
+        <h2>Technical & Coding Projects</h2>
+        
+        <article>
+            <h3>Project One Title</h3>
+            <p>A brief description of the tech stack used and what problem the application solves.</p>
+            <p><a href="#">View Code on GitHub</a> | <a href="#">Live Demo</a></p>
+        </article>
 
-        function postPoem() {
-            const input = document.getElementById('poemInput');
-            const feed = document.getElementById('poemFeed');
-            const text = input.value.trim();
+        <article>
+            <h3>Project Two Title</h3>
+            <p>Description of your second coding project, highlighting your logic and problem-solving skills.</p>
+            <p><a href="#">View Code on GitHub</a></p>
+        </article>
+    </section>
 
-            if (text === "") return;
+    <hr>
 
-            // Create the new card element
-            const card = document.createElement('div');
-            card.className = 'card';
-            
-            // Get simplified time
-            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    <section id="creative-projects">
+        <h2>Videography & Graphic Design</h2>
+        
+        <article>
+            <h3>Short Film / Commercial Name</h3>
+            <p>Role: Director & Editor</p>
+            <p>Description of the project and the creative vision behind it.</p>
+        </article>
 
-            card.innerHTML = `
-                <div class="card-content">${text}</div>
-                <div class="card-meta">
-                    <span>@guest</span>
-                    <span>${time}</span>
-                </div>
-            `;
+        <article>
+            <h3>Graphic Design Collection</h3>
+            <p>Description of branding work, posters, or digital art you have created in the past.</p>
+        </article>
+    </section>
 
-            // Insert at the beginning of the feed
-            feed.prepend(card);
+    <hr>
 
-            // Clear and close
-            input.value = "";
-            toggleModal();
-        }
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>I'm always open to discussing new projects or creative opportunities.</p>
+        <ul>
+            <li>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></li>
+        </ul>
+    </section>
 
-        // Close modal on escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") {
-                const modal = document.getElementById('modal');
-                if (modal.classList.contains('active')) {
-                    toggleModal();
-                }
-            }
-        });
-    </script>
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 Your Name. Built with curiosity.</p>
+    </footer>
+
 </body>
 </html>
