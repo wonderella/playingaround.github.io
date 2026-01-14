@@ -272,7 +272,7 @@
         /* Skills Container */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             max-width: 900px;
             margin: 3rem auto 0;
@@ -444,7 +444,7 @@
         </ul>
     </nav>
 
-    <script>
+    <script> // I found AI least helpful in this section. I could ask it for bits, but the animation itself was rough (and is still rough) 
         function toggleMenu() {
             const menu = document.querySelector('.nav-menu');
             const toggle = document.querySelector('.menu-toggle');
@@ -463,13 +463,13 @@
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            
+
     </script>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Your Name</h1>
+            <h1>Rachael Chung</h1>
             <p>Creative Engineer • Building at the intersection of design and technology</p>
         </div>
     </section>
@@ -485,29 +485,39 @@
                     <!-- Or remove the img tag to see the placeholder -->
                 </div>
                 <div class="about-text">
-                    <p>I'm a second-semester freshman studying mechanical engineering at [Your University]. My path to engineering has been anything but traditional—I've spent years developing skills in graphic design, video editing, and social media content creation.</p>
+                    <p>Hi! I'm Rachael, a freshman studying <strong>mechanical engineering</strong> at <strong>Carnegie Mellon University</strong>. My path to engineering has been anything but traditional; I've spent years developing skills in graphic design, video editing, and social media content creation.</p>
                     <p style="margin-top: 1rem;">What excites me most is finding ways to bridge creative and technical work. Whether I'm designing a mechanism or crafting a visual story, I'm driven by the challenge of making complex ideas accessible and engaging.</p>
                 </div>
             </div>
             
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>Engineering & Code</h3>
+                    <h3>Engineering</h3>
+                    <ul>
+                        <li>SolidWorks</li>
+                        <li>3D Printing</li>
+                        <li>Laser Cutting</li>
+                        <li>Rapid Prototyping</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Code</h3>
                     <ul>
                         <li>Python</li>
-                        <li>CAD Software</li>
                         <li>MATLAB</li>
-                        <li>JavaScript</li>
+                        <li>Arduino (C/C++)</li>
+                        <li>GitHub</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
                     <h3>Design & Media</h3>
                     <ul>
-                        <li>Adobe Premiere Pro</li>
-                        <li>Adobe Photoshop</li>
+                        <li>Canva</li>
+                        <li>Google Suite</li>
                         <li>Adobe Illustrator</li>
-                        <li>Social Media Strategy</li>
+                        <li>Social Media Management</li>
                     </ul>
                 </div>
             </div>
@@ -589,10 +599,9 @@
             <p>Interested in working together or just want to chat? Reach out!</p>
             
             <div class="contact-links">
-                <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-                <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+                <a href="mailto:rachung23@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/rachaelachung"target="_blank">LinkedIn</a>
+                <a href="https://github.com/wonderella" target="_blank">GitHub</a>
             </div>
         </div>
     </section>
